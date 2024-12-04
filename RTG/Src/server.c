@@ -3,16 +3,25 @@
 #include "UART_test.h"
 #include "ADC_test.h"
 #include "Timer_test.h"
+#include "SPI_test.h"
+#include "I2C_test.h"
 
 static uint8_t execute_test(TestCommand* command) {
-	printf("Executing test for Peripheral: %u, Test-ID: %u\r\n", (unsigned int)command->peripheral, (unsigned int)command->test_id);
+    printf("Executing test for Peripheral: %u, Test-ID: %u\r\n",
+           (unsigned int)command->peripheral,
+           (unsigned int)command->test_id);
+
     switch (command->peripheral) {
         case TEST_PERIPHERAL_UART:
-        	return test_uart(command->bit_pattern, command->pattern_length, command->iterations);
+            return test_uart(command->bit_pattern, command->pattern_length, command->iterations);
         case TEST_PERIPHERAL_ADC:
             return test_adc(command->iterations);
         case TEST_PERIPHERAL_TIMER:
-        	return test_timer(command->iterations);
+            return test_timer(command->iterations);
+        case TEST_PERIPHERAL_SPI:
+            return test_spi(command->bit_pattern, command->pattern_length, command->iterations);
+        case TEST_PERIPHERAL_I2C:
+            return test_i2c(command->bit_pattern, command->pattern_length, command->iterations);
         default:
             printf("Invalid peripheral for testing: %d\r\n", command->peripheral);
             return 0xFF;

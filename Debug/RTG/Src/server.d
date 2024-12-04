@@ -31,6 +31,8 @@ RTG/Src/server.o: ../RTG/Src/server.c \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h \
+ ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h \
+ ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h \
@@ -76,7 +78,9 @@ RTG/Src/server.o: ../RTG/Src/server.c \
  C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/UART_test.h \
  C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/ADC_test.h \
  C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/RTG.h \
- C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/Timer_test.h
+ C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/Timer_test.h \
+ C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/SPI_test.h \
+ C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/I2C_test.h
 C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/RTG.h:
 ../Core/Inc/main.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h:
@@ -110,6 +114,8 @@ C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/RTG.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_i2c_ex.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pwr_ex.h:
+../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi.h:
+../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_spi_ex.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h:
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h:
@@ -156,3 +162,5 @@ C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/UART_test.h:
 C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/ADC_test.h:
 C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/RTG.h:
 C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/Timer_test.h:
+C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/SPI_test.h:
+C:/Users/Haim/Desktop/RTED/ARM/prj/LWIP_UDP_FProj_HaimOzer/RTG/Inc/I2C_test.h:

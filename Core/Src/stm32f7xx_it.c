@@ -58,6 +58,10 @@
 extern ETH_HandleTypeDef heth;
 extern ADC_HandleTypeDef hadc1;
 extern DAC_HandleTypeDef hdac;
+extern I2C_HandleTypeDef hi2c2;
+extern I2C_HandleTypeDef hi2c4;
+extern SPI_HandleTypeDef hspi1;
+extern SPI_HandleTypeDef hspi2;
 extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 extern DMA_HandleTypeDef hdma_uart5_rx;
@@ -277,6 +281,48 @@ void TIM3_IRQHandler(void)
 }
 
 /**
+  * @brief This function handles I2C2 event interrupt.
+  */
+void I2C2_EV_IRQHandler(void)
+{
+  /* USER CODE BEGIN I2C2_EV_IRQn 0 */
+
+  /* USER CODE END I2C2_EV_IRQn 0 */
+  HAL_I2C_EV_IRQHandler(&hi2c2);
+  /* USER CODE BEGIN I2C2_EV_IRQn 1 */
+
+  /* USER CODE END I2C2_EV_IRQn 1 */
+}
+
+/**
+  * @brief This function handles SPI1 global interrupt.
+  */
+void SPI1_IRQHandler(void)
+{
+  /* USER CODE BEGIN SPI1_IRQn 0 */
+
+  /* USER CODE END SPI1_IRQn 0 */
+  HAL_SPI_IRQHandler(&hspi1);
+  /* USER CODE BEGIN SPI1_IRQn 1 */
+
+  /* USER CODE END SPI1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles SPI2 global interrupt.
+  */
+void SPI2_IRQHandler(void)
+{
+  /* USER CODE BEGIN SPI2_IRQn 0 */
+
+  /* USER CODE END SPI2_IRQn 0 */
+  HAL_SPI_IRQHandler(&hspi2);
+  /* USER CODE BEGIN SPI2_IRQn 1 */
+
+  /* USER CODE END SPI2_IRQn 1 */
+}
+
+/**
   * @brief This function handles USART2 global interrupt.
   */
 void USART2_IRQHandler(void)
@@ -344,6 +390,20 @@ void ETH_WKUP_IRQHandler(void)
   /* USER CODE BEGIN ETH_WKUP_IRQn 1 */
 
   /* USER CODE END ETH_WKUP_IRQn 1 */
+}
+
+/**
+  * @brief This function handles I2C4 event interrupt.
+  */
+void I2C4_EV_IRQHandler(void)
+{
+  /* USER CODE BEGIN I2C4_EV_IRQn 0 */
+
+  /* USER CODE END I2C4_EV_IRQn 0 */
+  HAL_I2C_EV_IRQHandler(&hi2c4);
+  /* USER CODE BEGIN I2C4_EV_IRQn 1 */
+
+  /* USER CODE END I2C4_EV_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

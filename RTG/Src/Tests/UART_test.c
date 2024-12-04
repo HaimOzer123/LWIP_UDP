@@ -96,8 +96,8 @@ uint8_t test_uart(const char* bit_pattern, uint8_t pattern_length, uint8_t itera
             return 0xFF;
         }
     }
-
-    printf("UART test complete\r\n");
+    printf("***********************\r\n");
+    printf("\nUART test complete\r\n");
     return 1;
 }
 

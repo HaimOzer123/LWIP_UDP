@@ -39,8 +39,8 @@ uint8_t test_adc(uint16_t iterations) {
         if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {
             adc_value = HAL_ADC_GetValue(&hadc1);
 
-            printf("Iteration %u: ADC Value = %lu (Expected: %lu ± %lu)\r\n",
-                   i + 1, adc_value, known_adc_values[i], acceptable_offset);
+            printf("Iteration %u: ADC Value = %lu (Expected: %lu ± %lu)\r\n",i + 1, adc_value, known_adc_values[i], acceptable_offset);
+
 
             // Validate the ADC value within the acceptable range
             if (adc_value < known_adc_values[i] - acceptable_offset ||
@@ -68,6 +68,7 @@ uint8_t test_adc(uint16_t iterations) {
         printf("ADC Test Failed.\r\n");
         return 0xFF;
     }
-    printf("ADC Test complete.\r\n");
+    printf("***********************\r\n");
+    printf("\nADC Test complete.\r\n");
     return 1;
 }

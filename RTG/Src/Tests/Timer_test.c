@@ -41,14 +41,14 @@ uint8_t test_timer(uint16_t iterations) {
     // Compare the timers
     if (tim3_seconds == random_duration && tim2_seconds == random_duration) {
         printf("Timers are synchronized: TIM3 = %lu, TIM2 = %lu\r\n", tim3_seconds, tim2_seconds);
-
+        printf("Iteration %d passed\r\n", i + 1);
     } else {
         printf("Timers mismatch: TIM3 = %lu, TIM2 = %lu\r\n", tim3_seconds, tim2_seconds);
         return 0xFF; // Failure
     }
     }
-    printf("Timers Test Passed for all %u iterations.\r\n", iterations);
-    printf("Timer Test complete.\r\n");
+    printf("***********************\r\n");
+    printf("\nTimer Test complete.\r\n");
     return 1;
 }
 

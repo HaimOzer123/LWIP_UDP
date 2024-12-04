@@ -1,0 +1,2 @@
+../RTG/Src/Tests/I2C_test.c:15:9:test_i2c	4
+../RTG/Src/Tests/I2C_test.c:45:6:HAL_I2C_SlaveRxCpltCallback	1

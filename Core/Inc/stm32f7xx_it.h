@@ -60,11 +60,15 @@ void DMA1_Stream5_IRQHandler(void);
 void ADC_IRQHandler(void);
 void TIM2_IRQHandler(void);
 void TIM3_IRQHandler(void);
+void I2C2_EV_IRQHandler(void);
+void SPI1_IRQHandler(void);
+void SPI2_IRQHandler(void);
 void USART2_IRQHandler(void);
 void UART5_IRQHandler(void);
 void TIM6_DAC_IRQHandler(void);
 void ETH_IRQHandler(void);
 void ETH_WKUP_IRQHandler(void);
+void I2C4_EV_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
