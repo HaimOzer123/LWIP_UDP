@@ -7,7 +7,6 @@
  */
 #include "Protocol.h"
 #include "RTG.h"
-#include "RTG.h"
 #include "UART_test.h"
 #include "ADC_test.h"
 #include "Timer_test.h"

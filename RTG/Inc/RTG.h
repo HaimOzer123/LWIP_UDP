@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdint.h>
-#include "Protocol.h" // Include Protocol definitions for TestCommand and TestResult
+#include "Protocol.h"
 
 // General configuration for the RTG system
 

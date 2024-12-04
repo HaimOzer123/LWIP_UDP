@@ -4,10 +4,8 @@
  *  Created on: Dec 3, 2024
  *      Author: Haim
  */
+#ifndef TIMER_TEST_H
+#define TIMER_TEST_H
 
-#ifndef INC_TIMER_TEST_H_
-#define INC_TIMER_TEST_H_
+#endif // TIMER_TEST_H
 
-
-
-#endif /* INC_TIMER_TEST_H_ */
