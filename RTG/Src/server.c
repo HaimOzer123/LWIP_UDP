@@ -12,7 +12,7 @@ static uint8_t execute_test(TestCommand* command) {
         case TEST_PERIPHERAL_ADC:
             return test_adc(command->iterations);
         case TEST_PERIPHERAL_TIMER:
-//        	return test_timer(command->iterations);
+        	return test_timer(command->iterations);
         default:
             printf("Invalid peripheral for testing: %d\r\n", command->peripheral);
             return 0xFF;

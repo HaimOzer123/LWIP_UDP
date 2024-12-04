@@ -29,13 +29,7 @@ uint8_t test_adc(uint16_t iterations) {
     printf("Starting ADC Test with %u iterations...\r\n", iterations);
 
     uint32_t adc_value = 0;
-    uint8_t success = 1; // Assume success initially
-
-    // Check if the number of iterations exceeds known values
-    if (iterations > sizeof(known_adc_values) / sizeof(known_adc_values[0])) {
-        printf("Error: Too many iterations requested (%u). Maximum allowed is %u.\r\n",iterations, sizeof(known_adc_values) / sizeof(known_adc_values[0]));
-        return 0xFF; // Failure
-    }
+    uint32_t success = 1;
 
     for (uint16_t i = 0; i < iterations; i++) {
         // Start ADC conversion
@@ -72,7 +66,8 @@ uint8_t test_adc(uint16_t iterations) {
         printf("ADC Test Passed for all %u iterations.\r\n", iterations);
     } else {
         printf("ADC Test Failed.\r\n");
+        return 0xFF;
     }
-
+    printf("ADC Test complete.\r\n");
     return 1;
 }
