@@ -60,23 +60,8 @@ The system listens for commands over a UDP server, executes the specified tests,
   - `PC2 (MISO)` ↔ `PA6 (MISO)`
   - `PC3 (MOSI)` ↔ `PB5 (MOSI)`
 
+#### I2c Test Connections
+ - I2C2-SDA [PF0] <--> I2C4-SDA [PF15]
+ - I2C2-SCL [PF1] <--> I2C4-SCL [PF14]
 ---
 
-## Project Structure
-
-```plaintext
-RTG
-├── Protocol.h         # Test command and result protocol definitions
-├── RTG.h              # Main header for RTG system
-├── RTG.c              # Main implementation of RTG system
-├── UART_test.h        # UART testing functions and definitions
-├── UART_test.c        # UART test implementation
-├── ADC_test.h         # ADC testing functions and definitions
-├── ADC_test.c         # ADC test implementation
-├── Timer_test.h       # Timer testing functions and definitions
-├── Timer_test.c       # Timer test implementation
-├── SPI_test.h         # SPI testing functions and definitions
-├── SPI_test.c         # SPI test implementation
-├── I2C_test.h         # I2C testing functions and definitions
-├── I2C_test.c         # I2C test implementation
-└── README.md          # Project documentation
