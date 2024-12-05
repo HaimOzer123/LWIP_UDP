@@ -1,30 +1,55 @@
-///*
-// * UART_test.c
-// *
-// *  Created on: Dec 3, 2024
-// *      Author: Haim
-// *
-// *******************************************************
-// * UART Test Connections:
-// *
-// * Required connections for UART5 and UART2:
-// *
-// *   - TX5 (PC_12)CN8 ---> RX2 (PD_6)CN9
-// *   - RX5 (PD_2)CN8  ---> TX2 (PD_5)CN9
-// *******************************************************/
+/**
+ * @file UART_test.c
+ * @brief Implementation of UART testing functions.
+ *
+ * This file contains the implementation of functions for testing UART communication,
+ * including transmission and reception between UART5 and UART2.
+ *
+ * @details Required connections for UART testing:
+ * - TX5 (PC_12) <--> RX2 (PD_6)
+ * - RX5 (PD_2)  <--> TX2 (PD_5)
+ *
+ * The test verifies data integrity over multiple iterations by transmitting
+ * a bit pattern and checking the received data for mismatches or errors.
+ * It also includes error handling for transmission and reception failures.
+ *
+ * @author Haim
+ * @date Dec 3, 2024
+ */
 
 #include "UART_test.h"
 #include "RTG.h"
 #include "Protocol.h"
 
 // UART Test Function variables
+
+/** @brief Flag for UART5 RX complete callback. */
 volatile uint8_t UART_5_RX_Complete_Callback_Flag = 0;
+
+/** @brief Flag for UART2 RX complete callback. */
 volatile uint8_t UART_2_RX_Complete_Callback_Flag = 0;
+
+/** @brief Flag for UART5 error callback. */
 volatile uint8_t Uart_5_ErrorCallback_Flag = 0;
+
+/** @brief Flag for UART2 error callback. */
 volatile uint8_t Uart_2_ErrorCallback_Flag = 0;
 
+/** @brief HAL status variables for UART operations. */
 volatile HAL_StatusTypeDef status2tx, status2rx, status5tx, status5rx;
 
+/**
+ * @brief Test UART communication between UART5 and UART2.
+ *
+ * This function transmits a specified bit pattern between UART5 and UART2
+ * over multiple iterations. It verifies data integrity and handles errors
+ * during transmission and reception.
+ *
+ * @param[in] bit_pattern Pointer to the bit pattern to transmit.
+ * @param[in] pattern_length Length of the bit pattern.
+ * @param[in] iterations Number of iterations for the test.
+ * @return uint8_t Returns 1 on success, 0xFF on failure.
+ */
 uint8_t test_uart(const char* bit_pattern, uint8_t pattern_length, uint8_t iterations) {
     uint8_t recv_msg5_rx[128] = {0};
     uint8_t recv_msg2_rx[128] = {0};
@@ -101,6 +126,14 @@ uint8_t test_uart(const char* bit_pattern, uint8_t pattern_length, uint8_t itera
     return 1;
 }
 
+/**
+ * @brief Callback for UART RX complete event.
+ *
+ * This function is triggered when a UART RX operation completes.
+ * It sets the corresponding callback flag for UART5 or UART2.
+ *
+ * @param[in] huart Pointer to the UART handle that triggered the interrupt.
+ */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart) {
     if (huart->Instance == UART5) {
         UART_5_RX_Complete_Callback_Flag = 1;
@@ -109,6 +142,14 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef* huart) {
     }
 }
 
+/**
+ * @brief Callback for UART error event.
+ *
+ * This function is triggered when a UART error occurs.
+ * It sets the corresponding error callback flag for UART5 or UART2.
+ *
+ * @param[in] huart Pointer to the UART handle that triggered the error.
+ */
 void HAL_UART_ErrorCallback(UART_HandleTypeDef* huart) {
     if (huart->Instance == UART5) {
         Uart_5_ErrorCallback_Flag = 1;
@@ -116,6 +157,3 @@ void HAL_UART_ErrorCallback(UART_HandleTypeDef* huart) {
         Uart_2_ErrorCallback_Flag = 1;
     }
 }
-
-
-

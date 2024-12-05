@@ -1,29 +1,47 @@
-/*
- * ADC_test.c
+/**
+ * @file ADC_test.c
+ * @brief Implementation of ADC testing functions.
  *
- *  Created on: Dec 3, 2024
- *      Author: Haim
+ * This file contains the implementation of functions to test the ADC
+ * functionality on the STM32F7 microcontroller.
+ *
+ * @details Required hardware connection for the test:
+ * - ADC1 [PA0] <--> DAC [PA4]
+ *
+ * Ensure these connections are properly configured before running the test.
+ * The test validates ADC readings against known values within an acceptable range.
+ *
+ * @note The `hadc1` handler must be initialized before running this test.
+ * Also, ensure that the DAC is generating the expected output voltage
+ * corresponding to the `known_adc_values`.
+ *
+ * @author Haim
+ * @date Dec 3, 2024
  */
 
 #include "ADC_test.h"
 #include "RTG.h"
 
-
 // Pre-determined ADC results for comparison
 static const uint32_t known_adc_values[] = {
-		870, 900, 860, 880, 910,
+    870, 900, 860, 880, 910,
 };
 
-static const uint32_t acceptable_offset = 150; // Acceptable error margin to account for SAR ADC variations
+/** @brief Acceptable error margin to account for SAR ADC variations. */
+static const uint32_t acceptable_offset = 150;
 
-// Declare hadc1 as an external variable
+/** @brief Declare `hadc1` as an external variable. */
 extern ADC_HandleTypeDef hadc1;
 
 /**
- * Perform ADC test.
+ * @brief Perform ADC test by comparing readings against expected values.
  *
- * @param iterations Number of iterations to sample ADC.
- * @return 1 for success, 0 for failure.
+ * This function starts the ADC conversion, reads the ADC value, and validates
+ * it against the pre-determined known values. The test runs for a specified
+ * number of iterations, and results are printed for debugging.
+ *
+ * @param[in] iterations Number of iterations to sample ADC.
+ * @return 1 for success, 0xFF for failure.
  */
 uint8_t test_adc(uint16_t iterations) {
     printf("Starting ADC Test with %u iterations...\r\n", iterations);
@@ -39,8 +57,7 @@ uint8_t test_adc(uint16_t iterations) {
         if (HAL_ADC_PollForConversion(&hadc1, 100) == HAL_OK) {
             adc_value = HAL_ADC_GetValue(&hadc1);
 
-            printf("Iteration %u: ADC Value = %lu (Expected: %lu ± %lu)\r\n",i + 1, adc_value, known_adc_values[i], acceptable_offset);
-
+            printf("Iteration %u: ADC Value = %lu (Expected: %lu ± %lu)\r\n", i + 1, adc_value, known_adc_values[i], acceptable_offset);
 
             // Validate the ADC value within the acceptable range
             if (adc_value < known_adc_values[i] - acceptable_offset ||
