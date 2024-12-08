@@ -41,7 +41,7 @@ extern ADC_HandleTypeDef hadc1;
  * number of iterations, and results are printed for debugging.
  *
  * @param[in] iterations Number of iterations to sample ADC.
- * @return 1 for success, 0xFF for failure.
+ * @return 1 for success, TEST_FAILURE for failure.
  */
 uint8_t test_adc(uint16_t iterations) {
     printf("Starting ADC Test with %u iterations...\r\n", iterations);
@@ -69,7 +69,7 @@ uint8_t test_adc(uint16_t iterations) {
         } else {
             printf("ADC conversion timeout on iteration %u.\r\n", i + 1);
             HAL_ADC_Stop(&hadc1);
-            return 0xFF; // Failure
+            return TEST_FAILURE; // Failure
         }
 
         // Stop ADC conversion
@@ -83,9 +83,9 @@ uint8_t test_adc(uint16_t iterations) {
         printf("ADC Test Passed for all %u iterations.\r\n", iterations);
     } else {
         printf("ADC Test Failed.\r\n");
-        return 0xFF;
+        return TEST_FAILURE;
     }
     printf("***********************\r\n");
     printf("\nADC Test complete.\r\n");
-    return 1;
+    return TEST_SUCCESS;
 }

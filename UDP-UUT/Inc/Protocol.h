@@ -27,6 +27,19 @@
 /** @brief Bitfield for testing the ADC peripheral. */
 #define TEST_PERIPHERAL_ADC   16
 
+/** @brief Return code indicating success. */
+#define TEST_SUCCESS 1
+
+/** @brief Return code indicating failure. */
+#define TEST_FAILURE 0xFF
+
+/** @brief Enumeration for buffer sizes used in UART communication. */
+typedef enum {
+    UART_BUFFER_SIZE_SMALL = 64,
+    UART_BUFFER_SIZE_MEDIUM = 128,
+    UART_BUFFER_SIZE_LARGE = 256
+} UartBufferSize;
+
 /**
  * @brief Structure defining a test command.
  *

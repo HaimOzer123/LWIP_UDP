@@ -48,11 +48,11 @@ volatile HAL_StatusTypeDef status2tx, status2rx, status5tx, status5rx;
  * @param[in] bit_pattern Pointer to the bit pattern to transmit.
  * @param[in] pattern_length Length of the bit pattern.
  * @param[in] iterations Number of iterations for the test.
- * @return uint8_t Returns 1 on success, 0xFF on failure.
+ * @return uint8_t Returns 1 on success, TEST_FAILURE on failure.
  */
 uint8_t test_uart(const char* bit_pattern, uint8_t pattern_length, uint8_t iterations) {
-    uint8_t recv_msg5_rx[128] = {0};
-    uint8_t recv_msg2_rx[128] = {0};
+    uint8_t recv_msg5_rx[UART_BUFFER_SIZE_MEDIUM] = {0};
+    uint8_t recv_msg2_rx[UART_BUFFER_SIZE_MEDIUM] = {0};
 
     for (uint8_t i = 0; i < iterations; ++i) {
         printf("\nIteration %d:\r\n", i + 1);
@@ -64,30 +64,30 @@ uint8_t test_uart(const char* bit_pattern, uint8_t pattern_length, uint8_t itera
             status2tx = HAL_UART_Transmit(UART_2, (uint8_t*)bit_pattern, pattern_length + 1, SHORT_TIMEOUT);
             if (status2tx != HAL_OK) {
                 printf("UART2 TX failed with status: %d\r\n", status2tx);
-                return 0xFF;
+                return TEST_FAILURE;
             }
-            HAL_Delay(100);
+            HAL_Delay(SHORT_Delay);
 
             // UART5 Transmission
             status5tx = HAL_UART_Transmit(UART_5, (uint8_t*)bit_pattern, pattern_length + 1, SHORT_TIMEOUT);
             if (status5tx != HAL_OK) {
                 printf("UART5 TX failed with status: %d\r\n", status5tx);
-                return 0xFF;
+                return TEST_FAILURE;
             }
-            HAL_Delay(100);
+            HAL_Delay(SHORT_Delay);
 
             // UART5 Reception
             status5rx = HAL_UART_Receive_IT(UART_5, recv_msg5_rx, pattern_length + 1);
             if (status5rx != HAL_OK) {
                 printf("UART5 RX failed with status: %d\r\n", status5rx);
-                return 0xFF;
+                return TEST_FAILURE;
             }
 
             // UART2 Reception
             status2rx = HAL_UART_Receive_IT(UART_2, recv_msg2_rx, pattern_length + 1);
             if (status2rx != HAL_OK) {
                 printf("UART2 RX failed with status: %d\r\n", status2rx);
-                return 0xFF;
+                return TEST_FAILURE;
             }
 
             // Error Handling and Data Verification
@@ -118,12 +118,12 @@ uint8_t test_uart(const char* bit_pattern, uint8_t pattern_length, uint8_t itera
 
         if (HAL_GetTick() - iteration_start_time >= SHORT_TIMEOUT) {
             printf("Iteration %d failed due to timeout\r\n", i + 1);
-            return 0xFF;
+            return TEST_FAILURE;
         }
     }
     printf("***********************\r\n");
     printf("\nUART test complete\r\n");
-    return 1;
+    return TEST_SUCCESS;
 }
 
 /**

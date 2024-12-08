@@ -21,6 +21,7 @@
 
 #include "SPI_test.h"
 #include "UdpUut.h"
+#include "Protocol.h"
 
 /** @brief Data received from SPI1 (Master). */
 static uint8_t data_from_spi1 = 0;
@@ -35,7 +36,7 @@ static uint8_t data_from_spi1 = 0;
  * @param[in] bit_pattern Pointer to the bit pattern to transmit.
  * @param[in] pattern_length Length of the bit pattern.
  * @param[in] iterations Number of iterations for the test.
- * @return uint8_t Returns SPI_SUCCESS (1) on success, SPI_FAILURE (0xFF) on failure.
+ * @return uint8_t Returns SPI_SUCCESS (1) on success, SPI_FAILURE (TEST_FAILURE) on failure.
  */
 uint8_t test_spi(const char *bit_pattern, size_t pattern_length, int iterations) {
     uint8_t data_to_spi2 = 0;  // Data sent to slave
@@ -56,22 +57,22 @@ uint8_t test_spi(const char *bit_pattern, size_t pattern_length, int iterations)
         if (HAL_SPI_Transmit(SPI_1, &data_to_spi2, 1, 100) == HAL_OK) {
             printf("Master sent: 0x%02X\n\r", data_to_spi2);
         } else {
-            printf("Master Transmit Error! Returning 0xFF\n\r");
-            return 0xFF;  // Return failure code
+            printf("Master Transmit Error! Returning TEST_FAILURE\n\r");
+            return TEST_FAILURE;  // Return failure code
         }
 
         // Receive data from Slave (SPI2)
         if (HAL_SPI_Receive_IT(SPI_1, &data_from_spi1, 1) == HAL_OK) {
             printf("Master received: 0x%02X\n\r", data_from_spi1);
         } else {
-            printf("Master Receive Error! Returning 0xFF\n\r");
-            return 0xFF;  // Return failure code
+            printf("Master Receive Error! Returning TEST_FAILURE\n\r");
+            return TEST_FAILURE;  // Return failure code
         }
 
         // Compare transmitted and received data
         if (data_to_spi2 != data_from_spi1) {
             printf("Mismatch! Sent: 0x%02X, Received: 0x%02X\n\r", data_to_spi2, data_from_spi1);
-            return 0xFF;  // Return failure if mismatch
+            return TEST_FAILURE;  // Return failure if mismatch
         } else {
             printf("Match! Sent: 0x%02X, Received: 0x%02X\n\r", data_to_spi2, data_from_spi1);
             printf("Iteration %d passed\r\n", i + 1);
@@ -80,7 +81,7 @@ uint8_t test_spi(const char *bit_pattern, size_t pattern_length, int iterations)
 
     printf("***********************\r\n");
     printf("\nSPI test complete.\r\n");
-    return 1;  // Return success code
+    return TEST_SUCCESS;  // Return success code
 }
 
 /**

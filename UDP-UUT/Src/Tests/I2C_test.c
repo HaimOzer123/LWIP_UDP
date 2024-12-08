@@ -17,6 +17,7 @@
 
 #include "UdpUut.h"
 #include "I2C_test.h"
+#include "Protocol.h"
 
 /**
  * @brief Data received from I2C4 slave.
@@ -58,7 +59,7 @@ uint8_t I2C_Scan(I2C_HandleTypeDef *hi2c) {
  * @param[in] bit_pattern Pointer to the bit pattern to send.
  * @param[in] pattern_length Length of the bit pattern.
  * @param[in] iterations Number of iterations to send the pattern.
- * @return 1 for success, or 0xFF for failure.
+ * @return 1 for success, or TEST_FAILURE for failure.
  */
 uint8_t test_i2c(char *bit_pattern, uint8_t pattern_length, uint16_t iterations) {
     HAL_StatusTypeDef status;
@@ -67,7 +68,7 @@ uint8_t test_i2c(char *bit_pattern, uint8_t pattern_length, uint16_t iterations)
     address = I2C_Scan(I2C_4);
     if (address == 0) {
         printf("No device found. Cannot proceed with the test.\r\n");
-        return 0xFF; // Error
+        return TEST_FAILURE; // Error
     }
 
     // Prepare slave to receive
@@ -81,7 +82,7 @@ uint8_t test_i2c(char *bit_pattern, uint8_t pattern_length, uint16_t iterations)
         status = HAL_I2C_Master_Transmit(I2C_4, address << 1, (uint8_t *)bit_pattern, pattern_length, HAL_MAX_DELAY);
         if (status != HAL_OK) {
             printf("Transmission failed at iteration %d. Error: %ld\r\n", i + 1, HAL_I2C_GetError(I2C_4));
-            return 0xFF; // Error
+            return TEST_FAILURE; // Error
         }
 
         printf("Iteration %d successful.\r\n", i + 1);
@@ -89,7 +90,7 @@ uint8_t test_i2c(char *bit_pattern, uint8_t pattern_length, uint16_t iterations)
 
     printf("***********************\r\n");
     printf("\nI2C test completed successfully.\r\n");
-    return 1; // Success
+    return TEST_SUCCESS; // Success
 }
 
 /**

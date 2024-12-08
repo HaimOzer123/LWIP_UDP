@@ -47,7 +47,7 @@ volatile uint32_t random_duration = 0;
  * timers (TIM3 and TIM2) can accurately measure the same duration.
  *
  * @param[in] iterations Number of iterations to run the test.
- * @return uint8_t Returns 1 on success, 0xFF on failure.
+ * @return uint8_t Returns 1 on success, TEST_FAILURE on failure.
  */
 uint8_t test_timer(uint16_t iterations) {
     printf("Starting Timer Test with %u iterations...\r\n", iterations);
@@ -80,13 +80,13 @@ uint8_t test_timer(uint16_t iterations) {
             printf("Iteration %d passed\r\n", i + 1);
         } else {
             printf("Timers mismatch: TIM3 = %lu, TIM2 = %lu\r\n", tim3_seconds, tim2_seconds);
-            return 0xFF;  // Failure
+            return TEST_FAILURE;  // Failure
         }
     }
 
     printf("***********************\r\n");
     printf("\nTimer Test complete.\r\n");
-    return 1;
+    return TEST_SUCCESS;
 }
 
 /**

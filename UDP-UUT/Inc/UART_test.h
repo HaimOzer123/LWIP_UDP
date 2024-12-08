@@ -73,7 +73,7 @@ extern uint8_t uart5_flag_calback;
  * @brief Short timeout duration in milliseconds for UART operations.
  */
 #define SHORT_TIMEOUT 1000
-
+#define SHORT_Delay 100
 /// UART Testing Flags and Status Variables
 
 /** @brief UART5 RX complete callback flag. */
