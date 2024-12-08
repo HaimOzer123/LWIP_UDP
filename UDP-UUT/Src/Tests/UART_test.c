@@ -18,7 +18,7 @@
  */
 
 #include "UART_test.h"
-#include "RTG.h"
+#include "UdpUut.h"
 #include "Protocol.h"
 
 // UART Test Function variables

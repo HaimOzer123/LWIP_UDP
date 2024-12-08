@@ -20,6 +20,7 @@
  */
 
 #include "SPI_test.h"
+#include "UdpUut.h"
 
 /** @brief Data received from SPI1 (Master). */
 static uint8_t data_from_spi1 = 0;

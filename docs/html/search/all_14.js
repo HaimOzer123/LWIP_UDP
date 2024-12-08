@@ -1,7 +1,7 @@
 var searchData=
 [
   ['test_0',['Timer Test',['../index.html#autotoc_md10',1,'']]],
-  ['test_20connections_1',['Test Connections',['../index.html#autotoc_md11',1,'SPI Test Connections'],['../index.html#autotoc_md9',1,'UART Test Connections']]],
+  ['test_20connections_1',['Test Connections',['../index.html#autotoc_md12',1,'I2c Test Connections'],['../index.html#autotoc_md11',1,'SPI Test Connections'],['../index.html#autotoc_md9',1,'UART Test Connections']]],
   ['test_5fadc_2',['test_adc',['../_a_d_c__test_8h.html#abeb6c3ae2bf4865f590dfb22765e627c',1,'test_adc(uint16_t iterations):&#160;ADC_test.c'],['../_a_d_c__test_8c.html#abeb6c3ae2bf4865f590dfb22765e627c',1,'test_adc(uint16_t iterations):&#160;ADC_test.c']]],
   ['test_5fi2c_3',['test_i2c',['../_i2_c__test_8h.html#a7b98211cd7a47502e1570da2a26e66ae',1,'test_i2c(char *bit_pattern, uint8_t pattern_length, uint16_t iterations):&#160;I2C_test.c'],['../_i2_c__test_8c.html#a7b98211cd7a47502e1570da2a26e66ae',1,'test_i2c(char *bit_pattern, uint8_t pattern_length, uint16_t iterations):&#160;I2C_test.c']]],
   ['test_5fid_4',['test_id',['../struct_test_command.html#abb005da74d9cee4f853c2344d495f4d0',1,'TestCommand::test_id'],['../struct_test_result.html#a7d029a5cfbdd546ff7383177ce79a388',1,'TestResult::test_id']]],

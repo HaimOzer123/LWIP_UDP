@@ -74,12 +74,12 @@ extern uint16_t incoming_len;
 // Function declarations
 
 /**
- * @brief Main function for the RTG program.
+ * @brief Main function for the program.
  *
  * This function initializes the UDP server, processes incoming commands,
  * and handles real-time gateway operations.
  */
-void rtg_main(void);
+void UDP_main(void);
 
 /**
  * @brief Initialize the UDP server.

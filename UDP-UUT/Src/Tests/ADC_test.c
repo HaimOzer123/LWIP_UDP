@@ -20,7 +20,7 @@
  */
 
 #include "ADC_test.h"
-#include "RTG.h"
+#include "UdpUut.h"
 
 // Pre-determined ADC results for comparison
 static const uint32_t known_adc_values[] = {

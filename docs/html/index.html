@@ -96,7 +96,7 @@ Overview</h2>
 <p>The UUT LWip UDP STM32 system is designed for executing hardware tests on various peripherals through UDP communication. It provides a seamless interface for testing UART, ADC, Timer, SPI, and I2C peripherals in real time.</p>
 <p>The system listens for commands over a UDP server, executes the specified tests, and sends results back to the client.</p>
 <hr  />
-<p><img src="https://drive.google.com/uc?export=view&amp;id=1wlZdoFJPnCu5fi6q38DZnlvbr0gjZuHI" alt="System Block Diagram Overview" class="inline"/></p>
+<p><img src="docs/Screenshot.png" alt="System Block Diagram Overview" class="inline"/></p>
 <h2><a class="anchor" id="autotoc_md4"></a>
 Features</h2>
 <ul>
@@ -167,10 +167,13 @@ SPI Test Connections</h4>
 </ul>
 </li>
 </ul>
-<hr  />
+<h4><a class="anchor" id="autotoc_md12"></a>
+I2c Test Connections</h4>
+<ul>
+<li>I2C2-SDA [PF0] &lt;--&gt; I2C4-SDA [PF15] </li>
+</ul>
 <h2><a class="anchor" id="autotoc_md13"></a>
-Project Structure</h2>
-<p>```plaintext RTG ├── <a class="el" href="_protocol_8h.html" title="Header file defining the communication protocol for testing peripherals.">Protocol.h</a> # Test command and result protocol definitions ├── <a class="el" href="_r_t_g_8h.html" title="Header file for the Real-Time Gateway (RTG) system.">RTG.h</a> # Main header for RTG system ├── <a class="el" href="_r_t_g_8c.html" title="Implementation of the Real-Time Gateway (RTG) system.">RTG.c</a> # Main implementation of RTG system ├── <a class="el" href="_u_a_r_t__test_8h.html" title="Header file for UART testing functions.">UART_test.h</a> # UART testing functions and definitions ├── <a class="el" href="_u_a_r_t__test_8c.html" title="Implementation of UART testing functions.">UART_test.c</a> # UART test implementation ├── <a class="el" href="_a_d_c__test_8h.html" title="Header file for ADC testing functions.">ADC_test.h</a> # ADC testing functions and definitions ├── <a class="el" href="_a_d_c__test_8c.html" title="Implementation of ADC testing functions.">ADC_test.c</a> # ADC test implementation ├── <a class="el" href="_timer__test_8h.html" title="Header file for Timer testing functions.">Timer_test.h</a> # Timer testing functions and definitions ├── <a class="el" href="_timer__test_8c.html" title="Implementation of Timer testing functions.">Timer_test.c</a> # Timer test implementation ├── <a class="el" href="_s_p_i__test_8h.html" title="Header file for SPI testing functions.">SPI_test.h</a> # SPI testing functions and definitions ├── <a class="el" href="_s_p_i__test_8c.html" title="Implementation of SPI testing functions.">SPI_test.c</a> # SPI test implementation ├── <a class="el" href="_i2_c__test_8h.html" title="Header file for I2C testing and scanning functions.">I2C_test.h</a> # I2C testing functions and definitions ├── <a class="el" href="_i2_c__test_8c.html" title="Implementation of I2C testing and scanning functions.">I2C_test.c</a> # I2C test implementation └── README.md # Project documentation </p>
+- I2C2-SCL [PF1] &lt;--&gt; I2C4-SCL [PF14]</h2>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

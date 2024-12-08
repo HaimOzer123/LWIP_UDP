@@ -1,2 +1,2 @@
-../RTG/Src/Tests/SPI_test.c:46:9:test_spi	5
-../RTG/Src/Tests/SPI_test.c:88:6:HAL_SPI_RxCpltCallback	2
+../RTG/Src/Tests/SPI_test.c:39:9:test_spi	5
+../RTG/Src/Tests/SPI_test.c:93:6:HAL_SPI_RxCpltCallback	2

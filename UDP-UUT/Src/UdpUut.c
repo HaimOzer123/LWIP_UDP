@@ -15,9 +15,8 @@
  * @author Haim
  * @date Dec 3, 2024
  */
-
 #include "Protocol.h"
-#include "RTG.h"
+#include "UdpUut.h"
 #include "UART_test.h"
 #include "ADC_test.h"
 #include "Timer_test.h"
@@ -79,7 +78,7 @@ u16_t incomming_len = 0;
  *   - GATEWAY:  192.168.7.1 (not in use but required by IDE)
  * - Server Port: 50007
  */
-void rtg_main() {
+void UDP_main() {
     /**
      * @brief Prints a message indicating that the UDP server is running.
      */

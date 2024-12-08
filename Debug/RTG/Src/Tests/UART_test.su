@@ -1,3 +1,3 @@
-../RTG/Src/Tests/UART_test.c:28:9:test_uart	280	static
-../RTG/Src/Tests/UART_test.c:104:6:HAL_UART_RxCpltCallback	16	static
-../RTG/Src/Tests/UART_test.c:112:6:HAL_UART_ErrorCallback	16	static
+../RTG/Src/Tests/UART_test.c:53:9:test_uart	280	static
+../RTG/Src/Tests/UART_test.c:137:6:HAL_UART_RxCpltCallback	16	static
+../RTG/Src/Tests/UART_test.c:153:6:HAL_UART_ErrorCallback	16	static
